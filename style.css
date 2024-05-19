@@ -27,14 +27,21 @@ body{
 
 /* otp message print */
 
-.success{
+.otp-validate-message{
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.otp-validate-message.success{
     color: Green;
     font-size: 30px;
     font-weight: 700;
+    border: 1px solid green;
 }
 
-.fail{
+.otp-validate-message.fail{
     color: red;
     font-size: 30px;
     font-weight: 700;
+    border: 1px solid red;
 }

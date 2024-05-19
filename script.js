@@ -1,5 +1,23 @@
 
 let generatedOTP;
+const otpExpireElement = document.getElementById('otp-expires-id');
+
+//   expire otp function
+
+function expireOtp(){
+
+    const interval = 1000;
+    const totalTime = 15000;
+
+    const slice = totalTime/interval;
+
+    const intervalId = setInterval(function(){ }, interval)
+
+    setTimeout(function(){
+        clearInterval(intervalId);
+     }, totalTime)
+}
+
 // 1.    OTP Box -> code enter and next child box focus  
 
 function OTPBoxList(){
@@ -49,7 +67,7 @@ function validateOtp(){
     const result = (generatedOTP === parseInt(typedNumber,10));
 
    if(result){
-    otpMessage.innerHTML = "OTP Validate successfully";
+    otpMessage.innerHTML = "OTP Validate Successfully";
     otpMessage.classList.remove('fail');
     otpMessage.classList.add('success');
    } else{
