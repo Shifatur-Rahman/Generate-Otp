@@ -54,7 +54,7 @@ function generateOTP(){
     generatedOTP = Math.floor(1000 + Math.random() * 9000 );
     // console.log(generateOTP);
     otpElement.innerHTML = `Your OTP: ${generatedOTP}`;
-    expireOtp();
+    // expireOtp();
 }
 
 //  3. otp validation
@@ -72,10 +72,12 @@ function validateOtp(){
     const result = (generatedOTP === parseInt(typedNumber,10));
 
    if(result){
+    otpExpireElement.innerHTML = "";
     otpMessage.innerHTML = "OTP Validate Successfully";
     otpMessage.classList.remove('fail');
     otpMessage.classList.add('success');
-   } else{
+   } 
+   else{ 
     otpMessage.innerHTML = "OTP is Invalid";
     otpMessage.classList.remove('success');
     otpMessage.classList.add('fail');
