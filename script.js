@@ -1,20 +1,24 @@
 
 let generatedOTP;
-const otpExpireElement = document.getElementById('otp-expires-id');
+const otpExpireElement = document.getElementById("otp-expires-id");
 
 //   expire otp function
 
 function expireOtp(){
 
-    const interval = 1000;
     const totalTime = 15000;
+    const interval = 1000;
+    let slice = totalTime/interval;
 
-    const slice = totalTime/interval;
-
-    const intervalId = setInterval(function(){ }, interval)
+    const intervalId = setInterval(function(){ 
+        otpExpireElement.innerHTML = `OTP will expire after ${slice} seconds`;
+        slice = slice - 1;
+    }, interval)
 
     setTimeout(function(){
+        otpExpireElement.innerHTML = `OTP expired`;
         clearInterval(intervalId);
+        generateOTP();
      }, totalTime)
 }
 
@@ -50,6 +54,7 @@ function generateOTP(){
     generatedOTP = Math.floor(1000 + Math.random() * 9000 );
     // console.log(generateOTP);
     otpElement.innerHTML = `Your OTP: ${generatedOTP}`;
+    expireOtp();
 }
 
 //  3. otp validation
