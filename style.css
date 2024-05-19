@@ -24,3 +24,17 @@ body{
     border: none;
     border-radius: 5px;
 }
+
+/* otp message print */
+
+.success{
+    color: Green;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.fail{
+    color: red;
+    font-size: 30px;
+    font-weight: 700;
+}
